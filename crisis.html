@@ -1,0 +1,113 @@
+<!-- crisis.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crisis Support - MindLink</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="dashboard-page">
+    <!-- Similar structure to dashboard.html with crisis-specific content -->
+    <nav class="sidebar">...</nav>
+    
+    <main class="main-content">
+        <header class="top-bar">...</header>
+        
+        <div class="crisis-content">
+            <h1><i class="fas fa-first-aid"></i> Crisis Support</h1>
+            <p class="subtitle">Immediate help is available 24/7</p>
+            
+            <div class="emergency-options">
+                <div class="emergency-card immediate">
+                    <i class="fas fa-phone-alt"></i>
+                    <h3>Call for Immediate Help</h3>
+                    <p>Speak directly with a crisis counselor</p>
+                    <div class="phone-numbers">
+                        <a href="tel:0724361870">0724361870</a>
+                        <a href="tel:0707955695">0707955695</a>
+                    </div>
+                    <button class="btn-emergency">
+                        <i class="fas fa-phone"></i> Call Now
+                    </button>
+                </div>
+                
+                <div class="emergency-card chat">
+                    <i class="fas fa-comments"></i>
+                    <h3>Emergency Chat</h3>
+                    <p>Connect with a counselor immediately</p>
+                    <button class="btn-emergency" onclick="window.location.href='chat.html?emergency=true'">
+                        <i class="fas fa-comment-medical"></i> Start Emergency Chat
+                    </button>
+                </div>
+            </div>
+            
+            <div class="crisis-resources">
+                <h2><i class="fas fa-life-ring"></i> Additional Resources</h2>
+                
+                <div class="resource-grid">
+                    <div class="resource-item">
+                        <i class="fas fa-ambulance"></i>
+                        <h4>Kenya Emergency Services</h4>
+                        <p>Call 112 for police, fire, or ambulance</p>
+                    </div>
+                    
+                    <div class="resource-item">
+                        <i class="fas fa-hospital"></i>
+                        <h4>Nearest Hospital</h4>
+                        <p>Find the closest medical facility</p>
+                        <button class="btn-text">Locate Now</button>
+                    </div>
+                    
+                    <div class="resource-item">
+                        <i class="fas fa-hands-helping"></i>
+                        <h4>Suicide Prevention</h4>
+                        <p>Befrienders Kenya: 0722 178 177</p>
+                    </div>
+                    
+                    <div class="resource-item">
+                        <i class="fas fa-user-friends"></i>
+                        <h4>Support Person</h4>
+                        <p>Reach out to someone you trust</p>
+                        <button class="btn-text">Select Contact</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="coping-strategies">
+                <h2><i class="fas fa-heart"></i> Immediate Coping Strategies</h2>
+                
+                <div class="strategies-grid">
+                    <div class="strategy">
+                        <h4>Grounding Exercise (5-4-3-2-1)</h4>
+                        <p>Name 5 things you can see, 4 you can touch, 3 you can hear, 2 you can smell, 1 you can taste.</p>
+                    </div>
+                    
+                    <div class="strategy">
+                        <h4>Breathing Exercise</h4>
+                        <p>Breathe in for 4 counts, hold for 7, exhale for 8. Repeat 4 times.</p>
+                        <button class="btn-text">Start Exercise</button>
+                    </div>
+                    
+                    <div class="strategy">
+                        <h4>Safe Space Visualization</h4>
+                        <p>Close your eyes and imagine a place where you feel completely safe.</p>
+                        <button class="btn-text">Begin Visualization</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="safety-plan">
+                <h2><i class="fas fa-shield-alt"></i> Your Safety Plan</h2>
+                <p>Create a plan for when you're feeling overwhelmed</p>
+                <button class="btn-primary">Create Safety Plan</button>
+            </div>
+        </div>
+    </main>
+    
+    <script src="js/auth.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

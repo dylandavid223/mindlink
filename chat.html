@@ -1,0 +1,136 @@
+<!-- chat.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Support - MindLink</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/chat.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="dashboard-page">
+    <nav class="sidebar">...</nav>
+    
+    <main class="main-content">
+        <header class="top-bar">...</header>
+        
+        <div class="chat-container">
+            <div class="chat-sidebar">
+                <div class="chat-header">
+                    <h3><i class="fas fa-user-md"></i> Available Counselors</h3>
+                </div>
+                
+                <div class="counselors-list">
+                    <div class="counselor active">
+                        <div class="counselor-avatar">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="counselor-info">
+                            <h4>Sarah Mwangi</h4>
+                            <p>Clinical Psychologist</p>
+                            <span class="status available">Available</span>
+                        </div>
+                    </div>
+                    
+                    <div class="counselor">
+                        <div class="counselor-avatar">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="counselor-info">
+                            <h4>David Ochieng</h4>
+                            <p>Licensed Counselor</p>
+                            <span class="status busy">In Session</span>
+                        </div>
+                    </div>
+                    
+                    <!-- More counselors -->
+                </div>
+                
+                <div class="chat-history">
+                    <h4>Recent Chats</h4>
+                    <!-- Chat history items -->
+                </div>
+            </div>
+            
+            <div class="chat-main">
+                <div class="chat-header">
+                    <div class="chat-partner">
+                        <div class="avatar">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div>
+                            <h3>Sarah Mwangi</h3>
+                            <p>Clinical Psychologist • Online</p>
+                        </div>
+                    </div>
+                    <div class="chat-actions">
+                        <button class="btn-icon" title="Voice Call">
+                            <i class="fas fa-phone"></i>
+                        </button>
+                        <button class="btn-icon" title="Video Call">
+                            <i class="fas fa-video"></i>
+                        </button>
+                        <button class="btn-icon" title="End Session">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="chat-messages">
+                    <!-- Messages will go here -->
+                    <div class="message-date">Today</div>
+                    
+                    <div class="message received">
+                        <div class="message-content">
+                            <p>Hello! I'm Sarah, your counselor for today. How are you feeling?</p>
+                            <span class="message-time">2:30 PM</span>
+                        </div>
+                    </div>
+                    
+                    <div class="message sent">
+                        <div class="message-content">
+                            <p>Hi Sarah, I've been feeling really anxious today.</p>
+                            <span class="message-time">2:31 PM</span>
+                        </div>
+                    </div>
+                    
+                    <div class="message received">
+                        <div class="message-content">
+                            <p>I understand. Let's talk about what's been causing this anxiety. Would you like to start by telling me what you're experiencing?</p>
+                            <span class="message-time">2:32 PM</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="chat-input">
+                    <div class="input-tools">
+                        <button class="btn-icon"><i class="fas fa-smile"></i></button>
+                        <button class="btn-icon"><i class="fas fa-paperclip"></i></button>
+                        <button class="btn-icon"><i class="fas fa-microphone"></i></button>
+                    </div>
+                    <textarea placeholder="Type your message here..." rows="1"></textarea>
+                    <button class="btn-primary">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+                
+                <div class="chat-features">
+                    <button class="feature-btn" onclick="showCopingTools()">
+                        <i class="fas fa-tools"></i> Coping Tools
+                    </button>
+                    <button class="feature-btn" onclick="shareResource()">
+                        <i class="fas fa-share-alt"></i> Share Resource
+                    </button>
+                    <button class="feature-btn emergency" onclick="window.location.href='crisis.html'">
+                        <i class="fas fa-first-aid"></i> Emergency Help
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <script src="js/auth.js"></script>
+    <script src="js/chat.js"></script>
+</body>
+</html>
