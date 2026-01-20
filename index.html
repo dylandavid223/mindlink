@@ -1,312 +1,760 @@
-<!-- index.html -->
+<!-- index.html - IMPROVED DESIGN -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MindLink - Mental Health Support for Youth</title>
-    <link rel="stylesheet" href="css/main.css">
+    <title>MindLink - Mental Wellness for Kenyan Youth</title>
+    <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 </head>
 <body>
-    <!-- Navigation -->
+    <!-- Navigation - Modern Design -->
     <nav class="navbar">
-        <div class="nav-container">
+        <div class="container nav-container">
             <a href="index.html" class="logo">
-                <i class="fas fa-brain"></i>
-                <span>MindLink</span>
+                <div class="logo-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <span class="logo-text">Mind<span class="logo-highlight">Link</span></span>
             </a>
+            
             <div class="nav-menu" id="navMenu">
-                <a href="index.html" class="nav-link active">Home</a>
-                <a href="#features" class="nav-link">Features</a>
-                <a href="#about" class="nav-link">About</a>
-                <a href="#resources" class="nav-link">Resources</a>
-                <a href="#contact" class="nav-link">Contact</a>
-                <div class="auth-buttons">
-                    <a href="login.html" class="btn btn-outline">Login</a>
-                    <a href="signup.html" class="btn btn-primary">Sign Up</a>
+                <div class="nav-links">
+                    <a href="#home" class="nav-link active">Home</a>
+                    <a href="#features" class="nav-link">Features</a>
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#impact" class="nav-link">Impact</a>
+                    <a href="#testimonials" class="nav-link">Stories</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </div>
+                
+                <div class="nav-actions">
+                    <a href="login.html" class="btn btn-outline btn-sm">Sign In</a>
+                    <a href="signup.html" class="btn btn-primary btn-sm btn-glow">Get Started</a>
                 </div>
             </div>
-            <button class="menu-toggle" id="menuToggle">
-                <i class="fas fa-bars"></i>
+            
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
+                <span class="menu-bar"></span>
+                <span class="menu-bar"></span>
+                <span class="menu-bar"></span>
             </button>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-container">
-            <div class="hero-content">
-                <h1 class="hero-title">Mental Health Support for Youth</h1>
-                <p class="hero-subtitle">Confidential • Compassionate • 24/7 Access</p>
-                <p class="hero-description">MindLink provides safe, stigma-free mental health support for young people facing challenges like anxiety, depression, and more.</p>
-                <div class="hero-buttons">
-                    <a href="signup.html" class="btn btn-primary btn-lg">Get Support Now</a>
-                    <a href="login.html" class="btn btn-secondary btn-lg">Already Have Account</a>
+    <!-- Hero Section - Redesigned -->
+    <section class="hero" id="home">
+        <div class="hero-background">
+            <div class="hero-shape hero-shape-1"></div>
+            <div class="hero-shape hero-shape-2"></div>
+            <div class="hero-shape hero-shape-3"></div>
+        </div>
+        
+        <div class="container hero-container">
+            <div class="hero-content animate__animated animate__fadeInUp">
+                <div class="hero-badge">
+                    <span class="badge-icon">✨</span>
+                    <span>Trusted by 5,000+ Kenyan Youth</span>
+                </div>
+                
+                <h1 class="hero-title">
+                    Mental Wellness 
+                    <span class="gradient-text">Made Accessible</span>
+                    for Every Young Kenyan
+                </h1>
+                
+                <p class="hero-description">
+                    MindLink provides safe, confidential, and stigma-free mental health support 
+                    for youth aged 15-35. Connect with licensed counselors, join supportive communities, 
+                    and access tools for your wellbeing—anytime, anywhere.
+                </p>
+                
+                <div class="hero-cta">
+                    <a href="signup.html" class="btn btn-primary btn-lg btn-glow">
+                        <i class="fas fa-heart"></i> Start Your Journey
+                    </a>
+                    <a href="#features" class="btn btn-outline btn-lg">
+                        <i class="fas fa-play-circle"></i> See How It Works
+                    </a>
+                </div>
+                
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Available Support</div>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Confidential</div>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat">
+                        <div class="stat-number">0</div>
+                        <div class="stat-label">Stigma</div>
+                    </div>
                 </div>
             </div>
-            <div class="hero-image">
-                <img src="assets/hero-illustration.svg" alt="MindLink Support Illustration">
+            
+            <div class="hero-visual">
+                <div class="phone-mockup">
+                    <div class="phone-screen">
+                        <div class="screen-content">
+                            <div class="chat-bubble chat-left">
+                                <div class="chat-avatar">
+                                    <i class="fas fa-user-md"></i>
+                                </div>
+                                <div class="chat-message">
+                                    How are you feeling today? 💭
+                                </div>
+                            </div>
+                            <div class="chat-bubble chat-right">
+                                <div class="chat-message">
+                                    Better after our session yesterday 😊
+                                </div>
+                                <div class="chat-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                            </div>
+                            <div class="mood-tracker">
+                                <div class="mood-title">Today's Mood</div>
+                                <div class="mood-emojis">
+                                    <span>😊</span>
+                                    <span>🙂</span>
+                                    <span>😐</span>
+                                    <span>😔</span>
+                                    <span>😢</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="phone-frame"></div>
+                </div>
+                
+                <div class="floating-card card-1">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>End-to-End Encrypted</span>
+                </div>
+                <div class="floating-card card-2">
+                    <i class="fas fa-clock"></i>
+                    <span>Instant Response</span>
+                </div>
+                <div class="floating-card card-3">
+                    <i class="fas fa-users"></i>
+                    <span>Peer Support</span>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Features Section -->
+    <!-- Trust Bar -->
+    <section class="trust-bar">
+        <div class="container">
+            <p class="trust-label">Trusted & Partnered With</p>
+            <div class="trust-logos">
+                <div class="trust-logo">Ministry of Health</div>
+                <div class="trust-logo">University of Nairobi</div>
+                <div class="trust-logo">Kenyatta University</div>
+                <div class="trust-logo">AMREF Health Africa</div>
+                <div class="trust-logo">BasicNeeds Kenya</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section - Card Grid -->
     <section class="features" id="features">
         <div class="container">
-            <h2 class="section-title">Our Features & Services</h2>
-            <p class="section-subtitle">Designed with youth needs in mind</p>
+            <div class="section-header">
+                <span class="section-label">Why MindLink</span>
+                <h2 class="section-title">Your Complete Mental Wellness Toolkit</h2>
+                <p class="section-description">
+                    Everything you need for your mental health journey, designed specifically for Kenyan youth
+                </p>
+            </div>
             
             <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-comments"></i>
+                <div class="feature-card card-hover">
+                    <div class="feature-icon-wrapper">
+                        <div class="feature-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <div class="feature-badge">24/7</div>
                     </div>
-                    <h3>24/7 Chat Support</h3>
-                    <p>Licensed counselors available anytime for confidential conversations</p>
+                    <h3 class="feature-title">Live Chat Support</h3>
+                    <p class="feature-description">
+                        Connect instantly with licensed counselors and peer listeners for confidential conversations
+                    </p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check-circle"></i> Licensed Kenyan professionals</li>
+                        <li><i class="fas fa-check-circle"></i> Average response time: 2 minutes</li>
+                        <li><i class="fas fa-check-circle"></i> Available in English & Swahili</li>
+                    </ul>
                 </div>
                 
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-users"></i>
+                <div class="feature-card card-hover">
+                    <div class="feature-icon-wrapper">
+                        <div class="feature-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
                     </div>
-                    <h3>Peer Support Communities</h3>
-                    <p>Connect with others sharing similar experiences in safe spaces</p>
+                    <h3 class="feature-title">Peer Support Communities</h3>
+                    <p class="feature-description">
+                        Join moderated spaces where youth share experiences and support each other
+                    </p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check-circle"></i> Anxiety & Depression support</li>
+                        <li><i class="fas fa-check-circle"></i> Academic stress groups</li>
+                        <li><i class="fas fa-check-circle"></i> LGBTQ+ safe spaces</li>
+                    </ul>
                 </div>
                 
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-tools"></i>
+                <div class="feature-card card-hover">
+                    <div class="feature-icon-wrapper">
+                        <div class="feature-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
                     </div>
-                    <h3>Self-Help Tools</h3>
-                    <p>Mood trackers, relaxation exercises, and journaling features</p>
+                    <h3 class="feature-title">Interactive Tools</h3>
+                    <p class="feature-description">
+                        Track your mood, practice mindfulness, and build healthy habits
+                    </p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check-circle"></i> Daily mood & journal tracker</li>
+                        <li><i class="fas fa-check-circle"></i> Guided breathing exercises</li>
+                        <li><i class="fas fa-check-circle"></i> Sleep & routine planner</li>
+                    </ul>
                 </div>
                 
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-first-aid"></i>
+                <div class="feature-card card-hover">
+                    <div class="feature-icon-wrapper">
+                        <div class="feature-icon">
+                            <i class="fas fa-first-aid"></i>
+                        </div>
+                        <div class="feature-badge emergency">CRISIS</div>
                     </div>
-                    <h3>Crisis Intervention</h3>
-                    <p>Immediate referrals to professional services when needed</p>
+                    <h3 class="feature-title">Crisis Intervention</h3>
+                    <p class="feature-description">
+                        Immediate support and referrals for emergency situations
+                    </p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check-circle"></i> 24/7 emergency hotline access</li>
+                        <li><i class="fas fa-check-circle"></i> Local resource directory</li>
+                        <li><i class="fas fa-check-circle"></i> Safety planning tools</li>
+                    </ul>
                 </div>
                 
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-graduation-cap"></i>
+                <div class="feature-card card-hover">
+                    <div class="feature-icon-wrapper">
+                        <div class="feature-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
                     </div>
-                    <h3>Educational Resources</h3>
-                    <p>Mental health awareness materials and coping strategies</p>
+                    <h3 class="feature-title">Educational Resources</h3>
+                    <p class="feature-description">
+                        Learn about mental health with culturally relevant content
+                    </p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check-circle"></i> Swahili mental health guides</li>
+                        <li><i class="fas fa-check-circle"></i> Video workshops & webinars</li>
+                        <li><i class="fas fa-check-circle"></i> Weekly wellness tips</li>
+                    </ul>
                 </div>
                 
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-shield-alt"></i>
+                <div class="feature-card card-hover cta-card">
+                    <div class="feature-icon-wrapper">
+                        <div class="feature-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
                     </div>
-                    <h3>Confidential & Safe</h3>
-                    <p>Stigma-free environment with strong privacy protections</p>
+                    <h3 class="feature-title">Ready to Begin?</h3>
+                    <p class="feature-description">
+                        Join thousands of Kenyan youth on their mental wellness journey
+                    </p>
+                    <div class="feature-cta">
+                        <a href="signup.html" class="btn btn-primary btn-block">
+                            Create Free Account
+                        </a>
+                        <p class="cta-note">No credit card required • Takes 2 minutes</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Simple Process</span>
+                <h2 class="section-title">Get Support in 3 Easy Steps</h2>
+            </div>
+            
+            <div class="steps-container">
+                <div class="step-line"></div>
+                
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Create Your Profile</h3>
+                        <p>Sign up anonymously and tell us a bit about yourself</p>
+                    </div>
+                    <div class="step-icon">
+                        <i class="fas fa-user-plus"></i>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Choose Your Support</h3>
+                        <p>Select from chat, community, or self-help tools</p>
+                    </div>
+                    <div class="step-icon">
+                        <i class="fas fa-hand-pointer"></i>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Start Your Journey</h3>
+                        <p>Connect with support and track your progress</p>
+                    </div>
+                    <div class="step-icon">
+                        <i class="fas fa-flag-checkered"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section - Redesigned -->
     <section class="about" id="about">
         <div class="container">
-            <h2 class="section-title">About MindLink</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <h3>Our Vision</h3>
-                    <p>To create a world where every young person can access affordable, confidential, and stigma-free mental health support.</p>
+                    <span class="section-label">Our Story</span>
+                    <h2 class="section-title">Founded by Students, for Students</h2>
                     
-                    <h3>Our Mission</h3>
-                    <p>To empower youth by combining digital innovation with professional care, offering tools and spaces that foster resilience, wellbeing, and hope.</p>
-                    
-                    <h3>Organizational Structure</h3>
-                    <p>Led by Co-Founders MbaI Sharon (Medical Psychology Student) and Patrick Muruthi (Nursing Student), supported by 20 peer listeners and a multidisciplinary team.</p>
-                    
-                    <h3>Core Values</h3>
-                    <div class="values-grid">
-                        <span class="value-tag">Confidentiality</span>
-                        <span class="value-tag">Compassion</span>
-                        <span class="value-tag">Accessibility</span>
-                        <span class="value-tag">Autonomy</span>
-                        <span class="value-tag">Innovation</span>
-                        <span class="value-tag">Youth Empowerment</span>
+                    <div class="about-mission">
+                        <h3><i class="fas fa-bullseye"></i> Our Mission</h3>
+                        <p>
+                            To empower Kenyan youth by combining digital innovation with compassionate care, 
+                            offering tools and spaces that foster resilience, wellbeing, and hope.
+                        </p>
                     </div>
-                </div>
-                <div class="about-image">
-                    <img src="assets/about-illustration.svg" alt="About MindLink">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Target Users -->
-    <section class="users">
-        <div class="container">
-            <h2 class="section-title">Who We Serve</h2>
-            <div class="users-grid">
-                <div class="user-card">
-                    <i class="fas fa-user-graduate"></i>
-                    <h3>Youth (15-35)</h3>
-                    <p>Primary users seeking mental health support</p>
-                </div>
-                <div class="user-card">
-                    <i class="fas fa-users"></i>
-                    <h3>Parents</h3>
-                    <p>Seeking resources to support their children</p>
-                </div>
-                <div class="user-card">
-                    <i class="fas fa-chalkboard-teacher"></i>
-                    <h3>Educators</h3>
-                    <p>Looking for mental health resources for students</p>
-                </div>
-                <div class="user-card">
-                    <i class="fas fa-building"></i>
-                    <h3>Organizations</h3>
-                    <p>Partners supporting youth mental health initiatives</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <h2 class="section-title">Contact Us</h2>
-            
-            <div class="contact-container">
-                <div class="contact-form">
-                    <h3>Send Us a Message</h3>
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <input type="text" id="contactName" placeholder="Your Name" required>
+                    
+                    <div class="founders-section">
+                        <h3><i class="fas fa-users"></i> Meet Our Founders</h3>
+                        <div class="founders-grid">
+                            <div class="founder-card">
+                                <div class="founder-avatar">
+                                    <i class="fas fa-user-graduate"></i>
+                                </div>
+                                <div class="founder-info">
+                                    <h4>MbaI Sharon</h4>
+                                    <p>Medical Psychology Student</p>
+                                    <span class="founder-badge">Co-Founder</span>
+                                </div>
+                            </div>
+                            <div class="founder-card">
+                                <div class="founder-avatar">
+                                    <i class="fas fa-user-nurse"></i>
+                                </div>
+                                <div class="founder-info">
+                                    <h4>Patrick Muruthi</h4>
+                                    <p>Nursing Student</p>
+                                    <span class="founder-badge">Co-Founder</span>
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <input type="email" id="contactEmail" placeholder="Your Email" required>
+                    </div>
+                    
+                    <div class="team-stats">
+                        <div class="team-stat">
+                            <div class="stat-value">20+</div>
+                            <div class="stat-label">Peer Listeners</div>
                         </div>
-                        <div class="form-group">
-                            <select id="contactType" required>
-                                <option value="">Select Inquiry Type</option>
-                                <option value="general">General Inquiry</option>
-                                <option value="partnership">Partnership</option>
-                                <option value="support">Technical Support</option>
-                                <option value="crisis">Crisis Support</option>
-                                <option value="feedback">Feedback</option>
-                            </select>
+                        <div class="team-stat">
+                            <div class="stat-value">50+</div>
+                            <div class="stat-label">Volunteers</div>
                         </div>
-                        <div class="form-group">
-                            <textarea id="contactMessage" placeholder="Your message..." rows="5" required></textarea>
+                        <div class="team-stat">
+                            <div class="stat-value">3</div>
+                            <div class="stat-label>Kenyan Counties</div>
                         </div>
-                        <button type="submit" class="btn btn-primary btn-block">
-                            <i class="fas fa-paper-plane"></i> Send Message
-                        </button>
-                    </form>
+                    </div>
                 </div>
                 
+                <div class="about-visual">
+                    <div class="visual-card">
+                        <div class="card-header">
+                            <h3>Core Values</h3>
+                        </div>
+                        <div class="values-grid">
+                            <div class="value-pill">
+                                <i class="fas fa-lock"></i>
+                                <span>Confidentiality</span>
+                            </div>
+                            <div class="value-pill">
+                                <i class="fas fa-heart"></i>
+                                <span>Compassion</span>
+                            </div>
+                            <div class="value-pill">
+                                <i class="fas fa-universal-access"></i>
+                                <span>Accessibility</span>
+                            </div>
+                            <div class="value-pill">
+                                <i class="fas fa-user-shield"></i>
+                                <span>Safety</span>
+                            </div>
+                            <div class="value-pill">
+                                <i class="fas fa-lightbulb"></i>
+                                <span>Innovation</span>
+                            </div>
+                            <div class="value-pill">
+                                <i class="fas fa-rocket"></i>
+                                <span>Youth Empowerment</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section class="impact" id="impact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Our Impact</span>
+                <h2 class="section-title">Making a Difference in Kenyan Youth Mental Health</h2>
+            </div>
+            
+            <div class="impact-stats">
+                <div class="impact-stat">
+                    <div class="stat-circle">
+                        <div class="circle-progress" data-value="94"></div>
+                        <div class="circle-value">94%</div>
+                    </div>
+                    <h3>Report Improved Wellbeing</h3>
+                    <p>Users feel better after regular use of MindLink</p>
+                </div>
+                
+                <div class="impact-stat">
+                    <div class="stat-circle">
+                        <div class="circle-progress" data-value="87"></div>
+                        <div class="circle-value">87%</div>
+                    </div>
+                    <h3>Reduced Anxiety Levels</h3>
+                    <p>Significant decrease in anxiety symptoms</p>
+                </div>
+                
+                <div class="impact-stat">
+                    <div class="stat-circle">
+                        <div class="circle-progress" data-value="96"></div>
+                        <div class="circle-value">96%</div>
+                    </div>
+                    <h3>Would Recommend</h3>
+                    <p>Users recommend MindLink to friends</p>
+                </div>
+                
+                <div class="impact-stat">
+                    <div class="stat-circle">
+                        <div class="circle-progress" data-value="5k"></div>
+                        <div class="circle-value">5K+</div>
+                    </div>
+                    <h3>Lives Impacted</h3>
+                    <p>Youth supported across Kenya</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Youth Voices</span>
+                <h2 class="section-title">Real Stories from Our Community</h2>
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="quote-icon">"</div>
+                        <p>
+                            As a university student in Nairobi, the pressure was overwhelming. 
+                            MindLink gave me a safe space to talk without judgment.
+                        </p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user-graduate"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>Wanjiku, 22</h4>
+                            <p>University of Nairobi Student</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="quote-icon">"</div>
+                        <p>
+                            The Swahili resources helped me understand anxiety better. 
+                            Finally, mental health information in a language I truly understand.
+                        </p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>Juma, 19</h4>
+                            <p>College Student, Mombasa</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="quote-icon">"</div>
+                        <p>
+                            Being able to chat anonymously at 2 AM saved me during my darkest moments. 
+                            Thank you for being there when I needed it most.
+                        </p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>Anonymous, 25</h4>
+                            <p>Young Professional, Eldoret</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Banner -->
+    <section class="cta-banner">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Prioritize Your Mental Health?</h2>
+                <p>Join thousands of Kenyan youth who have found support, community, and hope through MindLink.</p>
+                <div class="cta-buttons">
+                    <a href="signup.html" class="btn btn-primary btn-lg btn-glow">
+                        <i class="fas fa-user-plus"></i> Join Free Today
+                    </a>
+                    <a href="#contact" class="btn btn-outline btn-lg">
+                        <i class="fas fa-question-circle"></i> Have Questions?
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section - Redesigned -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-container">
                 <div class="contact-info">
-                    <h3>Direct Contact Information</h3>
                     <div class="info-card">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <h4>Email Addresses</h4>
-                            <p>shazymbai@gmail.com</p>
-                            <p>muruthiwamuyu45@gmail.com</p>
+                        <h3><i class="fas fa-envelope"></i> Email Us</h3>
+                        <div class="info-content">
+                            <a href="mailto:shazymbai@gmail.com" class="contact-link">
+                                <i class="fas fa-envelope"></i> shazymbai@gmail.com
+                            </a>
+                            <a href="mailto:muruthiwamuyu45@gmail.com" class="contact-link">
+                                <i class="fas fa-envelope"></i> muruthiwamuyu45@gmail.com
+                            </a>
                         </div>
                     </div>
                     
                     <div class="info-card">
-                        <i class="fas fa-phone"></i>
-                        <div>
-                            <h4>Phone Numbers</h4>
-                            <p>0724361870</p>
-                            <p>0707955695</p>
+                        <h3><i class="fas fa-phone"></i> Call Us</h3>
+                        <div class="info-content">
+                            <a href="tel:0724361870" class="contact-link">
+                                <i class="fas fa-phone"></i> 0724361870
+                            </a>
+                            <a href="tel:0707955695" class="contact-link">
+                                <i class="fas fa-phone"></i> 0707955695
+                            </a>
                         </div>
                     </div>
                     
                     <div class="info-card">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <h4>Address</h4>
-                            <p>PO.BOX 4606-30100</p>
+                        <h3><i class="fas fa-map-marker-alt"></i> Find Us</h3>
+                        <div class="info-content">
+                            <p><i class="fas fa-map-pin"></i> PO.BOX 4606-30100</p>
                             <p>ELDORET, Kenya</p>
                         </div>
                     </div>
                     
-                    <div class="info-card">
-                        <i class="fas fa-clock"></i>
-                        <div>
-                            <h4>Availability</h4>
-                            <p>24/7 Crisis Support</p>
-                            <p>Always here for you</p>
+                    <div class="info-card emergency-card">
+                        <h3><i class="fas fa-first-aid"></i> Crisis Support</h3>
+                        <div class="info-content">
+                            <p>Available 24/7 for immediate assistance</p>
+                            <a href="crisis.html" class="btn btn-emergency btn-sm">
+                                <i class="fas fa-phone-alt"></i> Get Emergency Help
+                            </a>
                         </div>
                     </div>
+                </div>
+                
+                <div class="contact-form-wrapper">
+                    <div class="form-header">
+                        <h3>Send Us a Message</h3>
+                        <p>Have questions about partnerships, features, or anything else? We're here to help.</p>
+                    </div>
+                    
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Full Name *</label>
+                                <input type="text" id="name" name="name" required placeholder="Your name">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="category">Category *</label>
+                            <select id="category" name="category" required>
+                                <option value="" disabled selected>Select inquiry type</option>
+                                <option value="general">General Inquiry</option>
+                                <option value="partnership">Partnership Opportunity</option>
+                                <option value="university">University Collaboration</option>
+                                <option value="crisis">Crisis Support</option>
+                                <option value="feedback">Feedback & Suggestions</option>
+                                <option value="technical">Technical Support</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Your Message *</label>
+                            <textarea id="message" name="message" rows="4" required 
+                                      placeholder="How can we help you?"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-block">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                        
+                        <p class="form-note">
+                            <i class="fas fa-lock"></i> Your information is protected and confidential
+                        </p>
+                    </form>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Footer - Redesigned -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
+            <div class="footer-top">
                 <div class="footer-brand">
                     <a href="index.html" class="logo">
-                        <i class="fas fa-brain"></i>
-                        <span>MindLink</span>
+                        <div class="logo-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <span class="logo-text">Mind<span class="logo-highlight">Link</span></span>
                     </a>
-                    <p>Empowering youth through compassionate mental health support.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <p class="footer-tagline">
+                        Empowering Kenyan youth through compassionate mental health support.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
                     </div>
                 </div>
                 
                 <div class="footer-links">
-                    <h4>Quick Links</h4>
-                    <a href="index.html">Home</a>
-                    <a href="#features">Features</a>
-                    <a href="#about">About</a>
-                    <a href="#resources">Resources</a>
-                    <a href="login.html">Login</a>
-                    <a href="signup.html">Sign Up</a>
-                </div>
-                
-                <div class="footer-links">
-                    <h4>Resources</h4>
-                    <a href="#">Self-Help Tools</a>
-                    <a href="#">Educational Materials</a>
-                    <a href="#">Crisis Resources</a>
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
-                    <a href="#">FAQ</a>
-                </div>
-                
-                <div class="footer-newsletter">
-                    <h4>Stay Updated</h4>
-                    <p>Subscribe to our newsletter for mental health tips and updates.</p>
-                    <form id="newsletterForm">
-                        <input type="email" placeholder="Your email" required>
-                        <button type="submit" class="btn btn-primary">
-                            <i class="fas fa-paper-plane"></i>
-                        </button>
-                    </form>
+                    <div class="link-group">
+                        <h4>Platform</h4>
+                        <a href="#features">Features</a>
+                        <a href="signup.html">How It Works</a>
+                        <a href="#testimonials">Success Stories</a>
+                        <a href="#impact">Our Impact</a>
+                        <a href="pricing.html">Pricing</a>
+                    </div>
+                    
+                    <div class="link-group">
+                        <h4>Resources</h4>
+                        <a href="blog.html">Mental Health Blog</a>
+                        <a href="resources.html">Self-Help Tools</a>
+                        <a href="guides.html">Educational Guides</a>
+                        <a href="faq.html">FAQ</a>
+                        <a href="research.html">Research & Studies</a>
+                    </div>
+                    
+                    <div class="link-group">
+                        <h4>Company</h4>
+                        <a href="#about">About Us</a>
+                        <a href="team.html">Our Team</a>
+                        <a href="careers.html">Careers</a>
+                        <a href="partners.html">Partners</a>
+                        <a href="press.html">Press</a>
+                    </div>
+                    
+                    <div class="link-group">
+                        <h4>Support</h4>
+                        <a href="help.html">Help Center</a>
+                        <a href="crisis.html">Crisis Support</a>
+                        <a href="contact.html">Contact Us</a>
+                        <a href="privacy.html">Privacy Policy</a>
+                        <a href="terms.html">Terms of Service</a>
+                    </div>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2023 MindLink. All rights reserved. Designed with compassion for youth mental health.</p>
-                <p>PO.BOX 4606-30100, ELDORET, Kenya</p>
+                <div class="footer-cta">
+                    <p>Ready to start your mental wellness journey?</p>
+                    <a href="signup.html" class="btn btn-outline btn-sm">Get Started Free</a>
+                </div>
+                
+                <div class="footer-copyright">
+                    <p>&copy; 2023 MindLink. All rights reserved. Designed with ❤️ for Kenyan youth.</p>
+                    <p class="footer-location">
+                        <i class="fas fa-map-marker-alt"></i> PO.BOX 4606-30100, ELDORET, Kenya
+                    </p>
+                </div>
             </div>
         </div>
     </footer>
 
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
     <script src="js/main.js"></script>
-    <script src="js/auth.js"></script>
+    <script src="js/animations.js"></script>
 </body>
 </html>
