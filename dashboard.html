@@ -1,0 +1,329 @@
+<!-- dashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - MindLink</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="dashboard-page">
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <a href="dashboard.html" class="logo">
+                <i class="fas fa-brain"></i>
+                <span>MindLink</span>
+            </a>
+        </div>
+        
+        <div class="user-profile">
+            <div class="avatar">
+                <i class="fas fa-user-circle"></i>
+            </div>
+            <div class="user-info">
+                <h4 id="userName">Loading...</h4>
+                <p id="userRole">User</p>
+            </div>
+        </div>
+        
+        <ul class="sidebar-menu">
+            <li class="active">
+                <a href="dashboard.html">
+                    <i class="fas fa-home"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="chat.html">
+                    <i class="fas fa-comments"></i>
+                    <span>Chat Support</span>
+                </a>
+            </li>
+            <li>
+                <a href="community.html">
+                    <i class="fas fa-users"></i>
+                    <span>Community</span>
+                </a>
+            </li>
+            <li>
+                <a href="tools.html">
+                    <i class="fas fa-tools"></i>
+                    <span>Self-Help Tools</span>
+                </a>
+            </li>
+            <li>
+                <a href="resources.html">
+                    <i class="fas fa-book"></i>
+                    <span>Resources</span>
+                </a>
+            </li>
+            <li>
+                <a href="crisis.html" class="emergency-link">
+                    <i class="fas fa-first-aid"></i>
+                    <span>Crisis Support</span>
+                    <span class="emergency-badge">24/7</span>
+                </a>
+            </li>
+        </ul>
+        
+        <div class="sidebar-footer">
+            <a href="profile.html">
+                <i class="fas fa-user-cog"></i>
+                <span>Profile Settings</span>
+            </a>
+            <a href="#" id="logoutBtn">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Top Bar -->
+        <header class="top-bar">
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search resources, tools...">
+            </div>
+            
+            <div class="top-bar-actions">
+                <button class="btn-notification">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-badge">3</span>
+                </button>
+                <div class="quick-help">
+                    <button class="btn-help">
+                        <i class="fas fa-question-circle"></i>
+                        Quick Help
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Dashboard Content -->
+        <div class="dashboard-content">
+            <div class="welcome-banner">
+                <h1>Welcome back, <span id="welcomeName">User</span>!</h1>
+                <p>How are you feeling today? Remember, support is always available.</p>
+                <div class="mood-quick">
+                    <span>Quick mood check:</span>
+                    <div class="mood-emojis">
+                        <button class="mood-emoji" data-mood="1">😢</button>
+                        <button class="mood-emoji" data-mood="2">😔</button>
+                        <button class="mood-emoji" data-mood="3">😐</button>
+                        <button class="mood-emoji" data-mood="4">🙂</button>
+                        <button class="mood-emoji active" data-mood="5">😊</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Actions Grid -->
+            <div class="quick-actions">
+                <h2 class="section-title">Quick Actions</h2>
+                <div class="actions-grid">
+                    <div class="action-card emergency-card">
+                        <div class="action-icon">
+                            <i class="fas fa-first-aid"></i>
+                        </div>
+                        <h3>Crisis Support</h3>
+                        <p>Immediate help available 24/7</p>
+                        <button class="btn-action" onclick="window.location.href='crisis.html'">
+                            Get Help Now
+                        </button>
+                    </div>
+                    
+                    <div class="action-card chat-card">
+                        <div class="action-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <h3>Chat with Counselor</h3>
+                        <p>Start a confidential session</p>
+                        <button class="btn-action" onclick="window.location.href='chat.html'">
+                            Start Chat
+                        </button>
+                    </div>
+                    
+                    <div class="action-card community-card">
+                        <div class="action-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Peer Community</h3>
+                        <p>Connect with others</p>
+                        <button class="btn-action" onclick="window.location.href='community.html'">
+                            Visit Community
+                        </button>
+                    </div>
+                    
+                    <div class="action-card journal-card">
+                        <div class="action-icon">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <h3>Daily Journal</h3>
+                        <p>Record your thoughts</p>
+                        <button class="btn-action" onclick="openJournal()">
+                            Write Entry
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mood Tracker -->
+            <div class="mood-tracker">
+                <div class="section-header">
+                    <h2 class="section-title">Mood Tracker</h2>
+                    <button class="btn-text" onclick="showMoodHistory()">
+                        View History <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+                <div class="mood-chart-container">
+                    <canvas id="moodChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Recent Activity -->
+            <div class="recent-activity">
+                <h2 class="section-title">Recent Activity</h2>
+                <div class="activity-list">
+                    <div class="activity-item">
+                        <div class="activity-icon">
+                            <i class="fas fa-comment"></i>
+                        </div>
+                        <div class="activity-content">
+                            <h4>Chat with Counselor Sarah</h4>
+                            <p>Yesterday at 2:30 PM • 45 minute session</p>
+                        </div>
+                        <span class="activity-time">1 day ago</span>
+                    </div>
+                    
+                    <div class="activity-item">
+                        <div class="activity-icon">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <div class="activity-content">
+                            <h4>Completed Breathing Exercise</h4>
+                            <p>Managed anxiety with 5-minute exercise</p>
+                        </div>
+                        <span class="activity-time">2 days ago</span>
+                    </div>
+                    
+                    <div class="activity-item">
+                        <div class="activity-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="activity-content">
+                            <h4>Joined Support Group</h4>
+                            <p>"Anxiety Management" peer group</p>
+                        </div>
+                        <span class="activity-time">3 days ago</span>
+                    </div>
+                    
+                    <div class="activity-item">
+                        <div class="activity-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <div class="activity-content">
+                            <h4>Journal Entry</h4>
+                            <p>Wrote about daily challenges and wins</p>
+                        </div>
+                        <span class="activity-time">4 days ago</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Resources Section -->
+            <div class="resources-preview">
+                <div class="section-header">
+                    <h2 class="section-title">Recommended Resources</h2>
+                    <button class="btn-text" onclick="window.location.href='resources.html'">
+                        See All <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+                <div class="resources-grid">
+                    <div class="resource-card">
+                        <div class="resource-category anxiety">
+                            <i class="fas fa-wind"></i>
+                        </div>
+                        <h3>Managing Anxiety</h3>
+                        <p>10 techniques to reduce anxiety in daily life</p>
+                        <a href="#" class="resource-link">Read More</a>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <div class="resource-category sleep">
+                            <i class="fas fa-moon"></i>
+                        </div>
+                        <h3>Sleep Hygiene</h3>
+                        <p>Improve your sleep quality with these tips</p>
+                        <a href="#" class="resource-link">Read More</a>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <div class="resource-category mindfulness">
+                            <i class="fas fa-spa"></i>
+                        </div>
+                        <h3>5-Minute Mindfulness</h3>
+                        <p>Quick mindfulness exercises for busy days</p>
+                        <a href="#" class="resource-link">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Emergency Floating Button -->
+        <button class="emergency-float" onclick="window.location.href='crisis.html'">
+            <i class="fas fa-phone-alt"></i>
+            <span>Emergency Help</span>
+        </button>
+    </main>
+
+    <!-- Journal Modal -->
+    <div class="modal" id="journalModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Daily Journal</h2>
+                <button class="modal-close" onclick="closeJournal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="journal-date">
+                    <i class="fas fa-calendar"></i>
+                    <span id="currentDate"></span>
+                </div>
+                <div class="mood-selector">
+                    <span>How are you feeling?</span>
+                    <div class="mood-options">
+                        <button class="mood-option" data-mood="terrible">😢 Terrible</button>
+                        <button class="mood-option" data-mood="bad">😔 Bad</button>
+                        <button class="mood-option" data-mood="okay">😐 Okay</button>
+                        <button class="mood-option" data-mood="good">🙂 Good</button>
+                        <button class="mood-option" data-mood="great">😊 Great</button>
+                    </div>
+                </div>
+                <textarea class="journal-textarea" placeholder="Write about your day, thoughts, feelings..."></textarea>
+                <div class="journal-prompts">
+                    <p>Need inspiration? Try:</p>
+                    <ul>
+                        <li>What's one thing I'm grateful for today?</li>
+                        <li>What challenge did I overcome?</li>
+                        <li>How can I be kinder to myself tomorrow?</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeJournal()">Cancel</button>
+                <button class="btn btn-primary" onclick="saveJournalEntry()">Save Entry</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!-- signup.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - MindLink</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/auth.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="auth-page">
+    <div class="auth-container">
+        <div class="auth-card">
+            <div class="auth-header">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-brain"></i>
+                    <span>MindLink</span>
+                </a>
+                <h1>Create Account</h1>
+                <p>Join our supportive community</p>
+            </div>
+            
+            <form id="signupForm" class="auth-form">
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <div class="input-with-icon">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <div class="input-with-icon">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="age">Age</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-birthday-cake"></i>
+                            <input type="number" id="age" name="age" min="15" max="35" placeholder="Age" required>
+                        </div>
+                        <small class="form-hint">Must be between 15-35 years</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="gender">Gender</label>
+                        <select id="gender" name="gender" required>
+                            <option value="">Select</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="non-binary">Non-binary</option>
+                            <option value="other">Other</option>
+                            <option value="prefer-not-to-say">Prefer not to say</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="location">Location (Kenya)</label>
+                    <div class="input-with-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <select id="location" name="location" required>
+                            <option value="">Select County</option>
+                            <option value="nairobi">Nairobi</option>
+                            <option value="mombasa">Mombasa</option>
+                            <option value="kisumu">Kisumu</option>
+                            <option value="nakuru">Nakuru</option>
+                            <option value="eldoret">Eldoret</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Create Password</label>
+                    <div class="input-with-icon">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="password" name="password" placeholder="Create a strong password" required>
+                        <button type="button" class="toggle-password">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                    <div class="password-strength">
+                        <div class="strength-bar"></div>
+                        <span class="strength-text">Password strength</span>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <div class="input-with-icon">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="checkbox">
+                        <input type="checkbox" id="terms" required>
+                        <span>I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></span>
+                    </label>
+                </div>
+                
+                <div class="form-group" id="parentalConsent" style="display: none;">
+                    <label class="checkbox">
+                        <input type="checkbox" id="parentConsent">
+                        <span>I confirm I have parental consent (required for users under 18)</span>
+                    </label>
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-block">
+                    <i class="fas fa-user-plus"></i> Create Account
+                </button>
+                
+                <div class="auth-divider">
+                    <span>Or sign up with</span>
+                </div>
+                
+                <div class="social-auth">
+                    <button type="button" class="btn btn-google">
+                        <i class="fab fa-google"></i> Google
+                    </button>
+                    <button type="button" class="btn btn-facebook">
+                        <i class="fab fa-facebook"></i> Facebook
+                    </button>
+                </div>
+            </form>
+            
+            <div class="auth-footer">
+                <p>Already have an account? <a href="login.html">Sign in here</a></p>
+                <p class="privacy-notice">
+                    <i class="fas fa-shield-alt"></i>
+                    Your information is protected by end-to-end encryption
+                </p>
+            </div>
+        </div>
+        
+        <div class="auth-welcome">
+            <h2>Why Join MindLink?</h2>
+            <p>Access compassionate mental health support designed specifically for youth.</p>
+            <div class="benefits-list">
+                <div class="benefit">
+                    <i class="fas fa-comments"></i>
+                    <div>
+                        <h4>24/7 Chat Support</h4>
+                        <p>Connect with licensed counselors anytime</p>
+                    </div>
+                </div>
+                <div class="benefit">
+                    <i class="fas fa-users"></i>
+                    <div>
+                        <h4>Peer Community</h4>
+                        <p>Share experiences in safe, moderated spaces</p>
+                    </div>
+                </div>
+                <div class="benefit">
+                    <i class="fas fa-tools"></i>
+                    <div>
+                        <h4>Self-Help Tools</h4>
+                        <p>Track your mood and practice coping strategies</p>
+                    </div>
+                </div>
+                <div class="benefit">
+                    <i class="fas fa-graduation-cap"></i>
+                    <div>
+                        <h4>Educational Resources</h4>
+                        <p>Learn about mental health and wellness</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/auth.js"></script>
+</body>
+</html>

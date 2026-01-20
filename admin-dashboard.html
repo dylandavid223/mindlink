@@ -1,0 +1,328 @@
+<!-- admin-dashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - MindLink</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="admin-page">
+    <!-- Admin Sidebar -->
+    <nav class="admin-sidebar">
+        <div class="sidebar-header">
+            <a href="admin-dashboard.html" class="logo">
+                <i class="fas fa-brain"></i>
+                <span>MindLink Admin</span>
+            </a>
+        </div>
+        
+        <div class="admin-profile">
+            <div class="avatar admin">
+                <i class="fas fa-user-shield"></i>
+            </div>
+            <div class="admin-info">
+                <h4>Admin User</h4>
+                <p>Super Administrator</p>
+            </div>
+        </div>
+        
+        <ul class="admin-menu">
+            <li class="active">
+                <a href="admin-dashboard.html">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="admin-users.html">
+                    <i class="fas fa-users"></i>
+                    <span>User Management</span>
+                </a>
+            </li>
+            <li>
+                <a href="admin-counselors.html">
+                    <i class="fas fa-user-md"></i>
+                    <span>Counselors</span>
+                </a>
+            </li>
+            <li>
+                <a href="admin-analytics.html">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Analytics</span>
+                </a>
+            </li>
+            <li>
+                <a href="admin-content.html">
+                    <i class="fas fa-file-alt"></i>
+                    <span>Content</span>
+                </a>
+            </li>
+            <li>
+                <a href="admin-settings.html">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </li>
+            <li>
+                <a href="admin-reports.html">
+                    <i class="fas fa-file-export"></i>
+                    <span>Reports</span>
+                </a>
+            </li>
+        </ul>
+        
+        <div class="admin-quick">
+            <h4>Quick Actions</h4>
+            <button class="btn-quick" onclick="addNewCounselor()">
+                <i class="fas fa-user-plus"></i> Add Counselor
+            </button>
+            <button class="btn-quick" onclick="generateReport()">
+                <i class="fas fa-download"></i> Export Report
+            </button>
+            <button class="btn-quick" onclick="viewAuditLogs()">
+                <i class="fas fa-history"></i> Audit Logs
+            </button>
+        </div>
+        
+        <div class="sidebar-footer">
+            <a href="dashboard.html">
+                <i class="fas fa-user"></i>
+                <span>User View</span>
+            </a>
+            <a href="#" id="adminLogout">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Admin Main Content -->
+    <main class="admin-main">
+        <!-- Admin Top Bar -->
+        <header class="admin-topbar">
+            <div class="admin-breadcrumb">
+                <h1>Admin Dashboard</h1>
+                <nav>
+                    <span>Home</span> / <span>Dashboard</span>
+                </nav>
+            </div>
+            
+            <div class="admin-actions">
+                <div class="system-status">
+                    <span class="status-indicator active"></span>
+                    <span>System: Online</span>
+                </div>
+                <button class="btn-admin" onclick="showSystemAlerts()">
+                    <i class="fas fa-bell"></i>
+                    <span class="alert-badge">5</span>
+                </button>
+                <button class="btn-admin" onclick="openSupportTickets()">
+                    <i class="fas fa-ticket-alt"></i>
+                    <span class="ticket-badge">12</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Admin Stats -->
+        <div class="admin-stats">
+            <div class="stat-card">
+                <div class="stat-icon users">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div class="stat-info">
+                    <h3 id="totalUsers">1,247</h3>
+                    <p>Total Users</p>
+                    <span class="stat-change positive">+12% this week</span>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-icon active">
+                    <i class="fas fa-user-check"></i>
+                </div>
+                <div class="stat-info">
+                    <h3 id="activeUsers">843</h3>
+                    <p>Active Users (7 days)</p>
+                    <span class="stat-change positive">+8% this week</span>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-icon sessions">
+                    <i class="fas fa-comments"></i>
+                </div>
+                <div class="stat-info">
+                    <h3 id="totalSessions">2,156</h3>
+                    <p>Chat Sessions</p>
+                    <span class="stat-change positive">+15% this week</span>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-icon crisis">
+                    <i class="fas fa-first-aid"></i>
+                </div>
+                <div class="stat-info">
+                    <h3 id="crisisInterventions">47</h3>
+                    <p>Crisis Interventions</p>
+                    <span class="stat-change negative">-3% this week</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Charts Section -->
+        <div class="admin-charts">
+            <div class="chart-container">
+                <div class="chart-header">
+                    <h3>User Growth</h3>
+                    <select class="chart-period">
+                        <option>Last 7 days</option>
+                        <option>Last 30 days</option>
+                        <option>Last 90 days</option>
+                    </select>
+                </div>
+                <canvas id="userGrowthChart"></canvas>
+            </div>
+            
+            <div class="chart-container">
+                <div class="chart-header">
+                    <h3>Session Types</h3>
+                </div>
+                <canvas id="sessionTypesChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Recent Activity & Alerts -->
+        <div class="admin-content-grid">
+            <div class="recent-registrations">
+                <div class="content-header">
+                    <h3>Recent Registrations</h3>
+                    <button class="btn-text">View All</button>
+                </div>
+                <div class="registrations-list">
+                    <!-- Filled by JavaScript -->
+                </div>
+            </div>
+            
+            <div class="system-alerts">
+                <div class="content-header">
+                    <h3>System Alerts</h3>
+                    <span class="alert-count">5 New</span>
+                </div>
+                <div class="alerts-list">
+                    <div class="alert-item high">
+                        <div class="alert-icon">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <div class="alert-content">
+                            <h4>High Server Load</h4>
+                            <p>Server CPU at 85% - Peak hours detected</p>
+                            <span class="alert-time">10 minutes ago</span>
+                        </div>
+                        <button class="alert-action">
+                            <i class="fas fa-cog"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="alert-item medium">
+                        <div class="alert-icon">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                        <div class="alert-content">
+                            <h4>Counselor Availability Low</h4>
+                            <p>Only 2 counselors available for next hour</p>
+                            <span class="alert-time">1 hour ago</span>
+                        </div>
+                        <button class="alert-action">
+                            <i class="fas fa-users"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="alert-item low">
+                        <div class="alert-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <div class="alert-content">
+                            <h4>Backup Completed</h4>
+                            <p>Daily database backup successful</p>
+                            <span class="alert-time">2 hours ago</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Admin Tools -->
+        <div class="admin-tools">
+            <h3>Quick Admin Tools</h3>
+            <div class="tools-grid">
+                <button class="tool-card" onclick="manageUsers()">
+                    <i class="fas fa-user-cog"></i>
+                    <span>User Management</span>
+                    <small>Add, edit, or remove users</small>
+                </button>
+                
+                <button class="tool-card" onclick="manageContent()">
+                    <i class="fas fa-edit"></i>
+                    <span>Content Management</span>
+                    <small>Update resources and articles</small>
+                </button>
+                
+                <button class="tool-card" onclick="viewReports()">
+                    <i class="fas fa-chart-pie"></i>
+                    <span>Analytics Reports</span>
+                    <small>Generate detailed reports</small>
+                </button>
+                
+                <button class="tool-card" onclick="systemSettings()">
+                    <i class="fas fa-sliders-h"></i>
+                    <span>System Settings</span>
+                    <small>Configure platform settings</small>
+                </button>
+                
+                <button class="tool-card" onclick="crisisManagement()">
+                    <i class="fas fa-first-aid"></i>
+                    <span>Crisis Management</span>
+                    <small>Manage crisis protocols</small>
+                </button>
+                
+                <button class="tool-card" onclick="auditLogs()">
+                    <i class="fas fa-history"></i>
+                    <span>Audit Logs</span>
+                    <small>View system activity logs</small>
+                </button>
+            </div>
+        </div>
+
+        <!-- Counselor Status -->
+        <div class="counselor-status">
+            <div class="content-header">
+                <h3>Counselor Availability</h3>
+                <div class="availability-stats">
+                    <span class="available">8 Available</span>
+                    <span class="busy">4 In Session</span>
+                    <span class="offline">8 Offline</span>
+                </div>
+            </div>
+            <div class="counselors-grid">
+                <!-- Filled by JavaScript -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Admin Modals -->
+    <div class="admin-modal" id="addUserModal">
+        <div class="modal-content">
+            <!-- User management modal content -->
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>
