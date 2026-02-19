@@ -1,33 +1,702 @@
-<!-- crisis.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crisis Support - MindLink</title>
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/dashboard.css">
+    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts (Poppins) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* === GLOBAL STYLES (copied from dashboard for consistency) === */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        :root {
+            --primary: #5e72e4;
+            --primary-light: #7b8cff;
+            --primary-dark: #324cdd;
+            --secondary: #2dce89;
+            --secondary-light: #4fda9c;
+            --danger: #f5365c;
+            --danger-dark: #d4234b;
+            --warning: #fb6340;
+            --info: #11cdef;
+            --dark: #32325d;
+            --darker: #1a1a2e;
+            --light: #f7fafc;
+            --gray: #8898aa;
+            --gray-light: #dee2e6;
+            --white: #ffffff;
+            --shadow-sm: 0 2px 5px rgba(0,0,0,0.05);
+            --shadow-md: 0 5px 15px rgba(0,0,0,0.08);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.1);
+            --transition: all 0.25s ease;
+            --radius: 20px;
+            --radius-sm: 14px;
+            --sidebar-width: 280px;
+        }
+
+        body {
+            background-color: #f5f7fb;
+            color: var(--dark);
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+
+        .dashboard-page {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* === SIDEBAR (same as dashboard, compact) === */
+        .sidebar {
+            width: var(--sidebar-width);
+            background: linear-gradient(180deg, #2a2f5c 0%, #1d1f3a 100%);
+            color: rgba(255,255,255,0.85);
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            overflow-y: auto;
+            box-shadow: 4px 0 15px rgba(0,0,0,0.15);
+            z-index: 100;
+            transition: var(--transition);
+        }
+
+        .sidebar-header {
+            padding: 30px 25px 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.7rem;
+            font-weight: 600;
+            color: white;
+            text-decoration: none;
+        }
+
+        .logo i {
+            color: var(--secondary);
+            font-size: 2rem;
+        }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 20px 25px;
+            border-bottom: 1px solid rgba(255,255,255,0.12);
+            margin-bottom: 25px;
+        }
+
+        .avatar i {
+            font-size: 3rem;
+            color: rgba(255,255,255,0.7);
+        }
+
+        .user-info h4 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: white;
+        }
+
+        .user-info p {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.6);
+        }
+
+        .sidebar-menu {
+            list-style: none;
+            padding: 0 15px;
+            flex: 1;
+        }
+
+        .sidebar-menu li {
+            margin-bottom: 8px;
+        }
+
+        .sidebar-menu a {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 12px 20px;
+            color: rgba(255,255,255,0.75);
+            text-decoration: none;
+            border-radius: 15px;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .sidebar-menu a i {
+            width: 24px;
+            font-size: 1.3rem;
+            color: rgba(255,255,255,0.6);
+        }
+
+        .sidebar-menu li.active a,
+        .sidebar-menu a:hover {
+            background: rgba(255,255,255,0.12);
+            color: white;
+        }
+
+        .sidebar-menu li.active a i,
+        .sidebar-menu a:hover i {
+            color: var(--secondary);
+        }
+
+        .emergency-link {
+            background: rgba(245, 54, 92, 0.15);
+            border-left: 3px solid var(--danger);
+        }
+
+        .emergency-badge {
+            background: var(--danger);
+            color: white;
+            font-size: 0.7rem;
+            padding: 3px 8px;
+            border-radius: 20px;
+            margin-left: auto;
+        }
+
+        .sidebar-footer {
+            padding: 25px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .sidebar-footer a {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 12px 5px;
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            border-radius: 10px;
+            transition: var(--transition);
+        }
+
+        .sidebar-footer a:hover {
+            color: white;
+            background: rgba(255,255,255,0.05);
+        }
+
+        /* === MAIN CONTENT === */
+        .main-content {
+            flex: 1;
+            margin-left: var(--sidebar-width);
+            padding: 25px 35px 35px;
+            position: relative;
+        }
+
+        /* TOP BAR (same as dashboard) */
+        .top-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--white);
+            padding: 12px 25px;
+            border-radius: 60px;
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 35px;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            background: var(--light);
+            padding: 8px 20px;
+            border-radius: 40px;
+            width: 300px;
+        }
+
+        .search-bar i {
+            color: var(--gray);
+            margin-right: 10px;
+        }
+
+        .search-bar input {
+            border: none;
+            background: transparent;
+            outline: none;
+            width: 100%;
+            font-size: 0.95rem;
+        }
+
+        .top-bar-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .btn-notification {
+            background: none;
+            border: none;
+            font-size: 1.4rem;
+            color: var(--dark);
+            position: relative;
+            cursor: pointer;
+        }
+
+        .notification-badge {
+            position: absolute;
+            top: -6px;
+            right: -6px;
+            background: var(--danger);
+            color: white;
+            font-size: 0.7rem;
+            padding: 2px 6px;
+            border-radius: 20px;
+        }
+
+        .btn-help {
+            background: var(--primary-light);
+            border: none;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-help:hover {
+            background: var(--primary);
+        }
+
+        /* === CRISIS PAGE SPECIFIC STYLES === */
+        .crisis-content {
+            display: flex;
+            flex-direction: column;
+            gap: 35px;
+        }
+
+        .crisis-content h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .crisis-content h1 i {
+            color: var(--danger);
+            font-size: 2.8rem;
+        }
+
+        .crisis-content .subtitle {
+            font-size: 1.2rem;
+            color: var(--gray);
+            margin-top: -15px;
+            margin-bottom: 5px;
+        }
+
+        /* Emergency Cards (immediate + chat) */
+        .emergency-options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin: 15px 0 5px;
+        }
+
+        .emergency-card {
+            background: var(--white);
+            border-radius: 30px;
+            padding: 35px 30px;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            border: 1px solid rgba(0,0,0,0.02);
+            text-align: center;
+        }
+
+        .emergency-card.immediate {
+            border-bottom: 5px solid var(--danger);
+        }
+
+        .emergency-card.chat {
+            border-bottom: 5px solid var(--info);
+        }
+
+        .emergency-card i {
+            font-size: 3.5rem;
+            color: var(--danger);
+            margin-bottom: 20px;
+        }
+
+        .emergency-card.chat i {
+            color: var(--info);
+        }
+
+        .emergency-card h3 {
+            font-size: 1.7rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .emergency-card p {
+            color: var(--gray);
+            margin-bottom: 25px;
+            font-size: 1rem;
+        }
+
+        .phone-numbers {
+            margin: 20px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .phone-numbers a {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--dark);
+            text-decoration: none;
+            background: var(--light);
+            padding: 12px 20px;
+            border-radius: 60px;
+            transition: var(--transition);
+            display: inline-block;
+            width: 100%;
+        }
+
+        .phone-numbers a:hover {
+            background: var(--primary-light);
+            color: white;
+        }
+
+        .btn-emergency {
+            background: var(--danger);
+            color: white;
+            border: none;
+            padding: 16px 30px;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            margin-top: 15px;
+        }
+
+        .emergency-card.chat .btn-emergency {
+            background: var(--info);
+        }
+
+        .btn-emergency:hover {
+            background: var(--danger-dark);
+            transform: scale(1.02);
+        }
+
+        .emergency-card.chat .btn-emergency:hover {
+            background: #0da5c0;
+        }
+
+        /* Crisis Resources grid */
+        .crisis-resources h2,
+        .coping-strategies h2,
+        .safety-plan h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--dark);
+        }
+
+        .crisis-resources h2 i {
+            color: var(--primary);
+        }
+
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .resource-item {
+            background: var(--white);
+            border-radius: 25px;
+            padding: 25px 20px;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .resource-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .resource-item i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .resource-item h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .resource-item p {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .btn-text {
+            background: none;
+            border: none;
+            color: var(--primary);
+            font-weight: 500;
+            cursor: pointer;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: var(--transition);
+        }
+
+        .btn-text:hover {
+            color: var(--primary-dark);
+            gap: 8px;
+        }
+
+        /* Coping strategies */
+        .coping-strategies {
+            background: white;
+            border-radius: var(--radius);
+            padding: 30px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .strategies-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-top: 15px;
+        }
+
+        .strategy {
+            background: var(--light);
+            border-radius: 25px;
+            padding: 30px 25px;
+            transition: var(--transition);
+        }
+
+        .strategy:hover {
+            background: #f0f3fe;
+        }
+
+        .strategy h4 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .strategy p {
+            color: var(--gray);
+            margin-bottom: 20px;
+            font-size: 1rem;
+        }
+
+        .btn-text i {
+            transition: var(--transition);
+        }
+
+        /* safety plan */
+        .safety-plan {
+            background: linear-gradient(135deg, #f0f4ff 0%, #ffffff 100%);
+            border-radius: var(--radius);
+            padding: 40px 35px;
+            border: 2px dashed var(--primary-light);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .safety-plan p {
+            font-size: 1.1rem;
+            color: var(--gray);
+            margin-bottom: 25px;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 14px 40px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .resource-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .strategies-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 900px) {
+            .emergency-options {
+                grid-template-columns: 1fr;
+            }
+            .resource-grid,
+            .strategies-grid {
+                grid-template-columns: 1fr;
+            }
+            .sidebar {
+                transform: translateX(-100%);
+            }
+            .main-content {
+                margin-left: 0;
+            }
+        }
+
+        /* emergency float (already in dashboard, keep hidden here? but we keep) */
+        .emergency-float {
+            display: none; /* hidden on crisis page because it's redundant */
+        }
+    </style>
 </head>
 <body class="dashboard-page">
-    <!-- Similar structure to dashboard.html with crisis-specific content -->
-    <nav class="sidebar">...</nav>
-    
-    <main class="main-content">
-        <header class="top-bar">...</header>
+    <!-- Sidebar Navigation (identical to dashboard, with crisis active) -->
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <a href="dashboard.html" class="logo">
+                <i class="fas fa-brain"></i>
+                <span>MindLink</span>
+            </a>
+        </div>
         
+        <div class="user-profile">
+            <div class="avatar">
+                <i class="fas fa-user-circle"></i>
+            </div>
+            <div class="user-info">
+                <h4 id="userName">Alex Rivera</h4>
+                <p id="userRole">Member</p>
+            </div>
+        </div>
+        
+        <ul class="sidebar-menu">
+            <li>
+                <a href="dashboard.html">
+                    <i class="fas fa-home"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="chat.html">
+                    <i class="fas fa-comments"></i>
+                    <span>Chat Support</span>
+                </a>
+            </li>
+            <li>
+                <a href="community.html">
+                    <i class="fas fa-users"></i>
+                    <span>Community</span>
+                </a>
+            </li>
+            <li>
+                <a href="tools.html">
+                    <i class="fas fa-tools"></i>
+                    <span>Self-Help Tools</span>
+                </a>
+            </li>
+            <li>
+                <a href="resources.html">
+                    <i class="fas fa-book"></i>
+                    <span>Resources</span>
+                </a>
+            </li>
+            <li class="active">
+                <a href="crisis.html" class="emergency-link">
+                    <i class="fas fa-first-aid"></i>
+                    <span>Crisis Support</span>
+                    <span class="emergency-badge">24/7</span>
+                </a>
+            </li>
+        </ul>
+        
+        <div class="sidebar-footer">
+            <a href="profile.html">
+                <i class="fas fa-user-cog"></i>
+                <span>Profile Settings</span>
+            </a>
+            <a href="#" id="logoutBtn">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Top Bar (same as dashboard) -->
+        <header class="top-bar">
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search resources, tools...">
+            </div>
+            
+            <div class="top-bar-actions">
+                <button class="btn-notification">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-badge">3</span>
+                </button>
+                <div class="quick-help">
+                    <button class="btn-help">
+                        <i class="fas fa-question-circle"></i>
+                        Quick Help
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Crisis Content (now fully styled) -->
         <div class="crisis-content">
             <h1><i class="fas fa-first-aid"></i> Crisis Support</h1>
-            <p class="subtitle">Immediate help is available 24/7</p>
+            <p class="subtitle">Immediate help is available 24/7 · You are not alone.</p>
             
+            <!-- Emergency options: call & chat -->
             <div class="emergency-options">
                 <div class="emergency-card immediate">
                     <i class="fas fa-phone-alt"></i>
                     <h3>Call for Immediate Help</h3>
-                    <p>Speak directly with a crisis counselor</p>
+                    <p>Speak directly with a crisis counselor now</p>
                     <div class="phone-numbers">
-                        <a href="tel:0724361870">0724361870</a>
-                        <a href="tel:0707955695">0707955695</a>
+                        <a href="tel:0724361870">📞 0724 361 870</a>
+                        <a href="tel:0707955695">📞 0707 955 695</a>
                     </div>
                     <button class="btn-emergency">
                         <i class="fas fa-phone"></i> Call Now
@@ -37,13 +706,14 @@
                 <div class="emergency-card chat">
                     <i class="fas fa-comments"></i>
                     <h3>Emergency Chat</h3>
-                    <p>Connect with a counselor immediately</p>
+                    <p>Connect with a counselor immediately via text</p>
                     <button class="btn-emergency" onclick="window.location.href='chat.html?emergency=true'">
                         <i class="fas fa-comment-medical"></i> Start Emergency Chat
                     </button>
                 </div>
             </div>
-            
+
+            <!-- Additional resources grid -->
             <div class="crisis-resources">
                 <h2><i class="fas fa-life-ring"></i> Additional Resources</h2>
                 
@@ -58,7 +728,7 @@
                         <i class="fas fa-hospital"></i>
                         <h4>Nearest Hospital</h4>
                         <p>Find the closest medical facility</p>
-                        <button class="btn-text">Locate Now</button>
+                        <button class="btn-text">Locate Now <i class="fas fa-chevron-right"></i></button>
                     </div>
                     
                     <div class="resource-item">
@@ -71,11 +741,12 @@
                         <i class="fas fa-user-friends"></i>
                         <h4>Support Person</h4>
                         <p>Reach out to someone you trust</p>
-                        <button class="btn-text">Select Contact</button>
+                        <button class="btn-text">Select Contact <i class="fas fa-chevron-right"></i></button>
                     </div>
                 </div>
             </div>
-            
+
+            <!-- Coping strategies -->
             <div class="coping-strategies">
                 <h2><i class="fas fa-heart"></i> Immediate Coping Strategies</h2>
                 
@@ -83,31 +754,48 @@
                     <div class="strategy">
                         <h4>Grounding Exercise (5-4-3-2-1)</h4>
                         <p>Name 5 things you can see, 4 you can touch, 3 you can hear, 2 you can smell, 1 you can taste.</p>
+                        <button class="btn-text">Try now <i class="fas fa-chevron-right"></i></button>
                     </div>
                     
                     <div class="strategy">
                         <h4>Breathing Exercise</h4>
                         <p>Breathe in for 4 counts, hold for 7, exhale for 8. Repeat 4 times.</p>
-                        <button class="btn-text">Start Exercise</button>
+                        <button class="btn-text">Start Exercise <i class="fas fa-chevron-right"></i></button>
                     </div>
                     
                     <div class="strategy">
                         <h4>Safe Space Visualization</h4>
                         <p>Close your eyes and imagine a place where you feel completely safe.</p>
-                        <button class="btn-text">Begin Visualization</button>
+                        <button class="btn-text">Begin Visualization <i class="fas fa-chevron-right"></i></button>
                     </div>
                 </div>
             </div>
             
+            <!-- Safety plan CTA -->
             <div class="safety-plan">
                 <h2><i class="fas fa-shield-alt"></i> Your Safety Plan</h2>
-                <p>Create a plan for when you're feeling overwhelmed</p>
+                <p>Create a personalized plan for when you're feeling overwhelmed. It can guide you through difficult moments.</p>
                 <button class="btn-primary">Create Safety Plan</button>
             </div>
         </div>
     </main>
-    
-    <script src="js/auth.js"></script>
-    <script src="js/dashboard.js"></script>
+
+    <script>
+        // simple logout demo
+        document.getElementById('logoutBtn')?.addEventListener('click', (e) => {
+            e.preventDefault();
+            alert('Logged out (demo).');
+        });
+
+        // demo for buttons (optional)
+        document.querySelectorAll('.btn-text, .btn-primary, .btn-emergency').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                if (!this.closest('a') && !this.onclick) {
+                    e.preventDefault();
+                    alert('Demo: This would connect to support.');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
